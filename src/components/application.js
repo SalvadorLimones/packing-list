@@ -1,11 +1,10 @@
-import { useContext } from 'react';
-import { ItemsContext } from '../lib/context';
+import { useItems } from '../lib/hooks';
 import { filterItems } from '../lib/items';
 import Header from './header';
 import ItemList from './item-list';
 
 const Application = () => {
-  const { items } = useContext(ItemsContext);
+  const items = useItems();
 
   const unpackedItems = filterItems(items, { packed: false });
   const packedItems = filterItems(items, { packed: true });
