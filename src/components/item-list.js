@@ -10,7 +10,7 @@ const EmptyState = ({ id, items, filteredItems }) => (
   </p>
 );
 
-const ItemList = ({ title = 'Items', items, update, remove }) => {
+const ItemList = ({ title = 'Items', items, dispatch }) => {
   const [filter, setFilter] = useState('');
   const id = toKebabCase(title);
 
@@ -32,7 +32,7 @@ const ItemList = ({ title = 'Items', items, update, remove }) => {
       </header>
       <ul className="flex flex-col gap-2">
         {filteredItems.map((item) => (
-          <Item key={item.id} item={item} update={update} remove={remove} />
+          <Item key={item.id} item={item} dispatch={dispatch} />
         ))}
       </ul>
       {isEmpty && (
